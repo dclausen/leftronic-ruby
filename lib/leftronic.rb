@@ -44,12 +44,9 @@ class Leftronic
     push stream, 'title' => title, 'msg' => message
   end
 
-  # Push a hash to a Leaderboard widget
-  def push_leaderboard(stream, hash)
-    leaderboard = hash.inject([]) do |array, (key, value)|
-      array << { 'name' => key, 'value' => value }
-    end
-    push stream, { 'leaderboard' => leaderboard }
+  # Push a array to a Leaderboard widget
+  def push_leaderboard(stream, array)
+    push stream, { 'leaderboard' => array }
   end
 
   # Push an array to a List widget
